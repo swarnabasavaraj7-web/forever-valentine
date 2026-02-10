@@ -10,7 +10,7 @@
       margin: 0;
       font-family: Arial, sans-serif;
 
-      background-image: url("./images/WhatsApp Image 2026-02-10 at 9.00.11 AM.jpeg");
+      background-image: url("./images/valentine-bg.png");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -78,4 +78,58 @@
       25% { transform: translateX(-6px); }
       50% { transform: translateX(6px); }
       75% { transform: translateX(-6px); }
-      100% {
+      100% { transform: translateX(0); }
+    }
+
+    .shake {
+      animation: shake 0.4s;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Will you be my forever Valentine? 💘</h1>
+
+    <div class="buttons">
+      <button id="yes" onclick="sayYes()">Yes 💖</button>
+      <button id="no">No 🙈</button>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+
+    noBtn.addEventListener("mouseenter", () => {
+      noBtn.classList.add("shake");
+
+      setTimeout(() => {
+        noBtn.classList.remove("shake");
+        moveNo();
+      }, 400);
+    });
+
+    function moveNo() {
+      const maxX = window.innerWidth - noBtn.offsetWidth;
+      const maxY = window.innerHeight - noBtn.offsetHeight;
+
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+
+      noBtn.style.left = randomX + "px";
+      noBtn.style.top = randomY + "px";
+    }
+
+    function sayYes() {
+      document.body.innerHTML = `
+        <h1 style="color:#b30059; text-align:center; margin-top:40vh;">
+          Yayyy! 💕🥰<br>
+          Forever Valentine unlocked 💍💖
+        </h1>
+      `;
+    }
+  </script>
+
+</body>
+</html>
