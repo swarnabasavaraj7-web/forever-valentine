@@ -6,27 +6,35 @@
 
   <style>
     body {
-      height: 100vh;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-family: Arial, sans-serif;
-     
-  background-image: url("WhatsApp Image 2026-02-10 at 9.00.11 AM.jpeg");
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+
+  background-image: url("./images/valentine-bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
+  position: relative;
   overflow: hidden;
-    }
+}
 
-    h1 {
-      color: white;
-      margin-bottom: 40px;
-      text-align: center;
-    }
+/* image transparency */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.5); /* 50% image transparency */
+  z-index: 0;
+}
+
+h1, .buttons {
+  position: relative;
+  z-index: 1;
+}
 
     .buttons {
       position: relative;
